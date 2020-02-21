@@ -17,7 +17,7 @@ public class java_fucntions_trig
 	public static void main(String[] args) 
 	
 	{
-		System.out.println(functions.sin_rad(3.1416/6));
+		System.out.println(functions.cos_deg(180/4));
 	}
 	
 	//inner static class containing all the tools
@@ -61,18 +61,19 @@ public class java_fucntions_trig
 			double accuracy = (double) 0.0001;
 			double denom, cos_x, temp;
 			
-			cos_x = temp = 1;
+			cos_x = temp = 1; //maps the sum and keeps track of cos values
 			
 			int loop = 1; //loop counter
 			
-			double check = (double) Math.cos(x); //just for checking purposes			
+			double check = (float) Math.cos(x); //just for checking purposes			
 			do
 			{
 				denom = 2 * loop * (2 * (loop - 1));
-				temp = -temp * x * x / denom;
-				cos_x = cos_x + 1;
-				loop++;
-			} while( accuracy <= (check - cos_x));
+				temp = (-temp * x * x) / denom;
+				cos_x = cos_x - temp;
+				System.out.println(cos_x);
+				loop = loop + 1;
+			} while( accuracy >= (check - cos_x));
 			
 			//hence it should return radians
 			return cos_x;
