@@ -17,7 +17,8 @@ public class java_fucntions_trig
 	public static void main(String[] args) 
 	
 	{
-		System.out.println(functions.cos_deg(180/4));
+		System.out.println(functions.cos_rad(2*3.1416));
+		System.out.println((float)Math.cos(360));
 	}
 	
 	//inner static class containing all the tools
@@ -58,23 +59,27 @@ public class java_fucntions_trig
 		public static double cos_rad(double x) 
 		{//normal cos method
 			
-			double accuracy = (double) 0.0001;
+			double accuracy = (float) 0.0001;
 			double denom, cos_x, temp;
 			
-			cos_x = temp = 1; //maps the sum and keeps track of cos values
+			cos_x = temp = 1; 
+			//maps the sum and keeps track of cos values
 			
 			int loop = 1; //loop counter
+			double check = (float) Math.cos(x);
+			//System.out.println(x);
+			//just for checking purposes
 			
-			double check = (float) Math.cos(x); //just for checking purposes			
+			
 			do
 			{
-				denom = 2 * loop * (2 * (loop - 1));
+				denom = 2 * loop * (2 * loop - 1);
 				temp = (-temp * x * x) / denom;
-				cos_x = cos_x - temp;
-				System.out.println(cos_x);
-				loop = loop + 1;
-			} while( accuracy >= (check - cos_x));
-			
+				cos_x = cos_x + temp;
+				//System.out.println(cos_x);
+				loop++;
+			} while( accuracy <= (check - cos_x));
+			//System.out.println(check - cos_x);
 			//hence it should return radians
 			return cos_x;
 		}
@@ -97,14 +102,13 @@ public class java_fucntions_trig
 			return (sin_deg(x)/cos_deg(x));
 		}
 		
-		
 		/*formula is degree_value x (pi / 180)
 		*method takes in a double value does the 
 		*math and returns the value in radians in decimal
 		*/
 		public static double to_radians(double value)
 		{
-			double ans = value * (3.1416/180);		
+			double ans = value * (3.1416 / 180);		
 			return ans;
 		}
 		
