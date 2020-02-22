@@ -17,8 +17,8 @@ public class java_fucntions_trig
 	public static void main(String[] args) 
 	
 	{
-		System.out.println(functions.cos_rad(2*3.1416));
-		System.out.println((float)Math.cos(360));
+		//System.out.println(functions.tan_deg(333));
+		//System.out.println((float)Math.cos(1));
 	}
 	
 	//inner static class containing all the tools
@@ -27,26 +27,23 @@ public class java_fucntions_trig
 		//this class will accept degree as a radian
 		public static double sin_rad(double x) 
 		{ //normal sin method
-			double accuracy = (double) 0.0001;
-			double denom, sin_x, temp;
-			
-			sin_x = temp = x; //to hold the calculated sum
-			
-			int loop = 1; //loop counter 
-			//loop is do...while it needs to execute at least once
 			
 			
-			double check = (float) Math.sin(x); //just for checking purposes
-			do
+			double sin_x = 0; //this will at last be the final cos value
+			double sign = 0, num = 0, denom = 0, fin = 0; 
+			//for calculations on the signs and the power
+			for(int i = 0; i < 10; ++i)
 			{
-				denom = 2 * loop * (2 * (loop + 1));
-				temp = (-temp * x * x)/denom;
-				sin_x = temp + sin_x;
-				loop++;
-			} while (accuracy <= (check - sin_x));
+				sign = power(-1, i);
+				num = power(x, (2 * i)+1);
+				denom = factorial((2 * i)+1);
+				
+				fin = (sign * num) / denom;
+				
+				sin_x += fin;
+			}
 			
-			//hence it should return radians
-			return sin_x;
+			return sin_x; //return the calculated cos value
 		}
 		
 		//this class accepts value as a degree
@@ -59,29 +56,21 @@ public class java_fucntions_trig
 		public static double cos_rad(double x) 
 		{//normal cos method
 			
-			double accuracy = (float) 0.0001;
-			double denom, cos_x, temp;
-			
-			cos_x = temp = 1; 
-			//maps the sum and keeps track of cos values
-			
-			int loop = 1; //loop counter
-			double check = (float) Math.cos(x);
-			//System.out.println(x);
-			//just for checking purposes
-			
-			
-			do
+			double cos_x = 0; //this will at last be the final cos value
+			double sign = 0, num = 0, denom = 0, fin = 0; 
+			//for calculations on the signs and the power
+			for(int i = 0; i < 10; ++i)
 			{
-				denom = 2 * loop * (2 * loop - 1);
-				temp = (-temp * x * x) / denom;
-				cos_x = cos_x + temp;
-				//System.out.println(cos_x);
-				loop++;
-			} while( accuracy <= (check - cos_x));
-			//System.out.println(check - cos_x);
-			//hence it should return radians
-			return cos_x;
+				sign = power(-1, i);
+				num = power(x, 2 * i);
+				denom = factorial(2 * i);
+				
+				fin = (sign * num) / denom;
+				
+				cos_x += fin;
+			}
+			
+			return cos_x; //return the calculated cos value
 		}
 		
 		//this class accepts value as a degree
@@ -121,9 +110,39 @@ public class java_fucntions_trig
 			double ans = value * (180 / 3.1416);
 			return ans;
 		}
+		
+		/*
+		 * factorial calculations for denominators
+		 * normal factorial calculations
+		 */
+		public static double factorial(int num)
+		{
+			double fact = 1; 
+			/*even if the num is 0! is 1 and so in any case 
+			 * it wouldn't return 0.
+			 */
+			while(num > 1)
+			{
+				fact *= num;
+				--num;
+			}
+			return fact;
+		}
+		
+		/*
+		 * method to calculate power and basically numerator calculations
+		 * num can be a decimal however power can't because I can't handle it!
+		 */
+		public static double power(double num, int pow)
+		{
+			float ans = 1; //it shouldn't be 0
+			//because we're multiplying it with num
+			
+			for(int i = 0; i < pow; i++) //iteratively calculates the power
+			{
+				ans *= num;
+			}
+			return ans;
+		}
 	}
-	
-	
-	
-
 }
