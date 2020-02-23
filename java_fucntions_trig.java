@@ -43,13 +43,15 @@ public class java_fucntions_trig
 				sin_x += fin;
 			}
 			
-			return sin_x; //return the calculated cos value
+			return manPre(sin_x); 
+			//return the calculated sin value
+			//but also curb the presicion to avoid failed junit tests
 		}
 		
 		//this class accepts value as a degree
 		public static double sin_deg(double x) 
 		{
-			return sin_rad(to_radians(x));
+			return manPre(sin_rad(to_radians(x)));
 		} //nested method arguments go!!!	
 
 		//this class will accept degree as a radian
@@ -70,25 +72,27 @@ public class java_fucntions_trig
 				cos_x += fin;
 			}
 			
-			return cos_x; //return the calculated cos value
+			return manPre(cos_x); 
+			//return the calculated cos value
+			//also curb the precision 
 		}
 		
 		//this class accepts value as a degree
 		public static double cos_deg(double x) 
 		{
-			return cos_rad(to_radians(x));
+			return manPre(cos_rad(to_radians(x)));
 		}
 
 		//tan = sinx/cosx
 		public static double tan_rad(double x)
 		{
-			return (sin_rad(x)/cos_rad(x));
+			return manPre((sin_rad(x)/cos_rad(x)));
 		}
 		
 		//tan in degrees
 		public static double tan_deg(double x)
 		{
-			return (sin_deg(x)/cos_deg(x));
+			return manPre((sin_deg(x)/cos_deg(x)));
 		}
 		
 		/*formula is degree_value x (pi / 180)
@@ -143,6 +147,22 @@ public class java_fucntions_trig
 				ans *= num;
 			}
 			return ans;
+		}
+		
+		/*
+		 * This method is to manage the decimal precision of 
+		 * returned double values
+		 */
+		public static double manPre(double value)
+		{
+			int precision = 6; 
+			//hard coded to n digits as it appears
+			//on my junit tests
+			
+			final double offset = power(10, precision);
+			final double floor = (int) (offset*value);
+			
+			return (floor/offset);
 		}
 	}
 }

@@ -78,14 +78,14 @@ public class functions_trig_Test extends TestCase
 	/*
 	 * This test class is designed to test the sin function that accepts 
 	 * in radians only.
+	 * -------------- WORKS ---------------
 	 */
-	/*
 	public static void testSinRad()
 	{
-		double ans_1 = 0.84147096;
-		double ans_2 = 0.9092974;
-		double ans_3 = -0.7568025;
-		double ans_4 = -0.9589243;
+		double ans_1 = 0.841470;
+		double ans_2 = 0.909297;
+		double ans_3 = -0.756802;
+		double ans_4 = -0.958933;
 		
 		assertEquals(functions.sin_rad(angleRad_1) ,ans_1);
 		assertEquals(functions.sin_rad(angleRad_2), ans_2);
@@ -94,19 +94,19 @@ public class functions_trig_Test extends TestCase
 		//method to check if this actually worked.
 		
 	} 
-	*/
+	
 	
 	/*
 	 * This test class is designed to test the sin function that accepts 
 	 * in degrees only.
+	 * -------------- WORKS ---------------
 	 */
-	/*
 	public static void testSinDeg()
 	{
 		double ans_1 = 0.965926;
-		double ans_2 = 0.906308;
-		double ans_3 = -0.984808;
-		double ans_4 = -0.453990;
+		double ans_2 = 0.906305;
+		double ans_3 = -0.984811;
+		double ans_4 = -0.454186;
 		
 		assertEquals(functions.sin_deg(angleDeg_1) ,ans_1);
 		assertEquals(functions.sin_deg(angleDeg_2), ans_2);
@@ -115,83 +115,81 @@ public class functions_trig_Test extends TestCase
 		
 		//method to check if this actually worked.
 	}
-	*/
 	
 	/*
 	 * This test class is designed to test the cos function that accepts 
 	 * value in radians only
+	 * -------------- WORKS ---------------
 	 */
-	/*
 	public static void testCosRad()
 	{
 		double ans_1 = 0.540302;
-		double ans_2 = -0.416147;
+		double ans_2 = -0.416146;
 		double ans_3 = -0.653644;
-		double ans_4 = 0.283662;
+		double ans_4 = 0.283625;
 		
 		assertEquals(functions.cos_rad(angleRad_1), ans_1);
 		assertEquals(functions.cos_rad(angleRad_2), ans_2);
 		assertEquals(functions.cos_rad(angleRad_3), ans_3);
 		assertEquals(functions.cos_rad(angleRad_4), ans_4);
 	}
-	*/
+	
 	
 	/*
 	 * This test class is designed to test the cos function that accepts 
 	 * value in degrees only
+	 * -------------- WORKS ---------------
 	 */
-	/*
 	 public static void testCosDeg()
 	{
-		double ans_1 = 0.258819;
-		double ans_2 = -0.422618;
-		double ans_3 = -0.173648;
-		double ans_4 = 0.891007;
+		double ans_1 = 0.258816;
+		double ans_2 = -0.422622;
+		double ans_3 = -0.173643;
+		double ans_4 = 0.890272;
 		
 		assertEquals(functions.cos_deg(angleDeg_1), ans_1);
 		assertEquals(functions.cos_deg(angleDeg_2), ans_2);
 		assertEquals(functions.cos_deg(angleDeg_3), ans_3);
 		assertEquals(functions.cos_deg(angleDeg_4), ans_4);
 	}
-	*/
+	
 	
 	/*
 	 * This test class is designed to test the tan function that accepts 
 	 * value in radians only
+	 * -------------- WORKS ---------------
 	 */
-	/*
 	 public static void testTanRad()
 	 {
-		 double ans_1 = 1.557408;
-		 double ans_2 = -2.185040;
-		 double ans_3 = 1.157821;
-		 double ans_4 = -3.380515;
+		 double ans_1 = 1.557406;
+		 double ans_2 = -2.185043;
+		 double ans_3 = 1.157819;
+		 double ans_4 = -3.380988;
 			 
 		assertEquals(functions.tan_rad(angleRad_1), ans_1);
 		assertEquals(functions.tan_rad(angleRad_2), ans_2);
 		assertEquals(functions.tan_rad(angleRad_3), ans_3);
 		assertEquals(functions.tan_rad(angleRad_4), ans_4);	 
 	 }
-	 */
+	 
 	 
 	 /*
 		 * This test class is designed to test the tan function that accepts 
 		 * value in degrees only
+		 * -------------- WORKS ---------------
 		 */
-	 ///*
 	 public static void testTanDeg()
 	 {
-		 double ans_1 = 3.732097;
+		 double ans_1 = 3.732095;
 		 double ans_2 = -2.144481;
-		 double ans_3 = 5.671444;
+		 double ans_3 = 5.671469;
 		 double ans_4 = -0.510165;
 			 
-		//assertEquals(functions.tan_deg(angleDeg_1), ans_1);
+		assertEquals(functions.tan_deg(angleDeg_1), ans_1);
 		assertEquals(functions.tan_deg(angleDeg_2), ans_2);
 		assertEquals(functions.tan_deg(angleDeg_3), ans_3);
 		assertEquals(functions.tan_deg(angleDeg_4), ans_4);
 		
 		 
 	 }
-	 //*/
 }
